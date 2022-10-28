@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="id" onload="goingup()">
+    <div id="header">
+        <div id="heading">DISK SCHEDULING ALGORITHMS</div>
+        <div id="navcover">
+            <div id="none" class="navbuttons">WIKI</div>
+            <div id="ntwo" class="navbuttons">PLOT</div>
+            <div id="nthree" class="navbuttons">ABOUT</div>
+        </div>
+        <div id="maincolorcircle"></div>
+    </div>
+    <div id="time">
+        <div class="color" id="c1"></div>
+        <div class="color" id="c2"></div>
+        <div class="color" id="c3"></div>
+        <div class="color" id="c4"></div>
+        <div class="color" id="c5"></div>
+        <div class="color" id="c6"></div>
+        <div class="color" id="c7"></div>
+        <div class="color" id="c8"></div>
+        <div class="color" id="c9"></div>
+    </div>
+    
+    <div class="mainlarge" id="pagewiki">
+        <div class="parts" id="partone">
+            <div class="ek"><p>What are Disk Scheduling Algorithms?
+            </p></div>
+            <div class="do"><p>
+                A process needs two type of time, CPU time and IO time. For I/O, it requests the Operating system to access the disk.However, the operating system must be fare enough to satisfy each request and at the same time, operating system must maintain the efficiency and speed of process execution.The technique that operating system uses to determine the request which is to be satisfied next is called disk scheduling.Disk scheduling is done by operating systems to schedule I/O requests arriving for the disk. Disk scheduling is also known as I/O Scheduling.
+            </p></div>
+        </div>
+        <div class="parts"  id="parttwo">
+            <div class="ek"><p>
+            Some important terminologies :
+            </p></div>
+            <div class="do"><p>
+                <b>Seek Time -</b><br>
+                Seek time is the time taken in locating the disk arm to a specified track where the read/write request will be satisfied.<br>
+                <b>Rotational Latency -</b><br>
+                It is the time taken by the desired sector to rotate itself to the position from where it can access the R/W heads.<br>
+                <b>Transfer Time -</b><br>
+                It is the time taken to transfer the data.<br>
+                <b>Disk Access Time -</b><br>
+                Disk access time is given as,
+                Disk Access Time = Rotational Latency + Seek Time + Transfer Time<br>
+                <b>Disk Response Time: -</b><br>
+                It is the average of time spent by each request waiting for the IO operation.<br>
+            </p></div>
+        </div>
+        <div class="parts" id="partthree">
+            <div class="ek">
+                <p>Why do we need Disk Scheduling Algorithms?</p>
+            </div>
+            <div class="do">
+                <p>Disk scheduling is important because:
+                    
+                      Multiple I/O requests may arrive by different processes and only one I/O request can be served at a time by the disk controller.Thus other I/O requests need to wait in the waiting queue and need to be scheduled.</li>
+                      Two or more request may be far from each other so can result in greater disk arm movement.</li>
+                      Hard drives are one of the slowest parts of the computer system and thus need to be accessed in an efficient manner.</li>
+                    
+                </p></div>
+
+        </div>
+        <div class="parts"  id="partfour">
+            <div class="ek"><p>
+            Types of Algorithms :
+            </p></div>
+            <div class="do"><p>
+                <b>First Come First Serve (FCFS) -</b><br>
+                In this algorithm, the requests are served in the order they come. Those who come first are served first. This is the simplest algorithm.<br>
+                <b>Shortest Seek Time First (SSTF) -</b><br>
+                In this algorithm, the shortest seek time is checked from the current position and those requests which have the shortest seek time is served first. In simple words, the closest request from the disk arm is served first.<br>
+                <b>Scan -</b><br>
+                In this algorithm, the disk arm moves in a particular direction till the end and serves all the requests in its path, then it returns to the opposite direction and moves till the last request is found in that direction and serves all of them.<br>
+                <b>Look -</b><br>
+                In this algorithm, the disk arm moves in a particular direction till the last request is found in that direction and serves all of them found in the path, and then reverses its direction and serves the requests found in the path again up to the last 
+                request found. The only difference between SCAN and LOOK is, it doesn't go to the end it only moves up to which the request is found.<br>
+                <b>C-Scan -</b><br>
+                This algorithm is the same as the SCAN algorithm. The only difference between SCAN and C-SCAN is, it moves in a particular direction till the last and serves the requests in its path. Then, it returns in the opposite direction till the end and doesn't
+                 serve the request while returning. Then, again reverses the direction and serves the requests found in the path. It moves circularly.<br>
+                 <b>C-Look -</b><br>
+                 This algorithm is also the same as the LOOK algorithm. The only difference between LOOK and C-LOOK is, it moves in a particular direction till the last request is found and serves the requests in its path. Then, it returns in the opposite direction till 
+                 the last request is found in that direction and doesn't serve the request while returning. Then, again reverses the direction and serves the requests found in the path. It also moves circularly.<br>
+            </p></div>
+        </div>
+    </div>
+    <div class="mainlarge" id="pageplot">
+        <div id="flip">
+        <form name="myForm">
+            <fieldset>
+              
+                  <div class="form-group">
+                      <label for="exampleSelect1">Algorithm</label>
+                        <select class="form-control" id="algorithm" >
+                          <option id="o1" value="fcfs" >FCFS</option>
+                          <option id="o2" value="sstf" >SSTF</option>
+                          <option id="o3" value="scan" >SCAN</option>
+                        </select>
+                  </div>
+                  <div class="form-group" id="second2" id="admDivCheck">
+                      <label for="exampleSelect1">Direction</label>
+                        <select class="form-control" id="direction">
+                          <option value="left" selected="selected">Left</option>
+                          <option value="right">Right</option>
+                        </select>
+                  </div>
+              
+              
+
+                 <div class="form-group" >
+  
+                      <label class="col-form-label" for="inputDefault">Sequence of cylinders</label>
+                      <input class="form-control" id="bitstream-input" name="bitstream" placeholder="Space-separated sequence" type="text" size="35" value="10 30 70 20 50 20 90">
+                  </div>
+            
+              
+                  <div class="form-group" >
+                      <label class="col-form-label" for="inputDefault">Initial cylinder</label>
+                      <input class="form-control" id="initial-input" name="intial"  type="text" size="5" value="50">
+                  </div>
+                  <div class="form-group" id="second" >
+                      <label class="col-form-label" for="inputDefault">Last cylinder</label>
+                      <input class="form-control" id="final-input" name="final"  type="text" size="5" value="1000000">
+                  </div>
+                  
+              
+          </fieldset>
+
+            </form>
+            <div id="grph" class="container2">
+                <div id="plt_alg_name"></div>
+                <div id="here" >
+                    <div id="0"></div>
+                </div>
+                <div id="plt_alg_seek"></div>
+                <div id="cal-seek"></div>
+              </div>
+            </div>
+            <div id="buttonskadibba">
+                <button type="submit" id="plot-button" class="btn btn-primary" onclick="getBitStreamAndPlot(event, document.getElementById('bitstream-input').value, document.getElementById('initial-input').value, document.getElementById('final-input').value, document.getElementById('algorithm').value,document.getElementById('direction').value)"><a href="#grph" style="color: white; text-decoration: none;">&nbsp;Plot&nbsp;</a></button>
+                <button type="submit" id="back-button" class="btn btn-primary">Back</button>
+            </div>
+          
+    </div>
+    <div class="mainlarge" id="pageabout">
+        
+            <div class="about-section">
+                <h1>About Us Page</h1>
+                <p id="lil">Front-end web development, also known as client-side development is the practice of producing HTML, CSS and JavaScript for a website or Web Application so that a 
+                    user can see and interact with them directly. The challenge associated with front end development is that the tools and techniques 
+                    used to create the front end of a website change constantly and so the developer needs to constantly be aware of how the field is developing.
+
+                    The objective of designing a site is to ensure that when the users open up the site they see the information in a format that is easy to read and relevant. This 
+                    is further complicated by the fact that users now use a large variety of devices with varying screen sizes and resolutions thus forcing the designer to take into 
+                    consideration these aspects when designing the site. They need to ensure that their site comes up correctly in different browsers (cross-browser), different operating systems 
+                    (cross-platform) and different devices (cross-device), which requires careful planning on the side of the developer.</p>
+                
+              </div>
+              
+              <h2 style="text-align:center">Our Team</h2>
+              <div id="row">
+                <div class="column">
+                  <div class="card">
+                    <img src="baljitsir.gif" alt="baljitsir" class="center" style="height:300px;">
+                    <div class="container">
+                      <h2>Baljit Singh Saini</h2>
+                      <p class="title">Professor</p>
+                      <p>Professor in prestegious Lovely Professional University. Deals with front end devlopment of full stack web development.</p>
+                      <p>baljit123@gmail.com</p>
+                      <p><button class="button">Contact</button></p>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="column">
+                  <div class="card">
+                    <img src="sindhura.gif" alt="sindhura" class="center" style="height: 300px;">
+                    <div class="container">
+                      <h2>Pogarthi Sindhura</h2>
+                      <p class="title">Student</p>
+                      <p>Student currently persuing the course of front end web development under the guidence of Dr.Baljit Singh Saini</p>
+                      <p>sindhura4456@gmail.com</p>
+                      <p><button class="button">Contact</button></p>
+                    </div>
+                  </div>
+                </div>
+              
+              
+        
+    
+     </div>
+
+    <script src="myjs.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</body>
+</html>
